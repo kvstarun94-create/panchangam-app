@@ -1,10 +1,15 @@
-Index · HTML
 <!DOCTYPE html>
 <html lang="te" data-theme="nakshatra">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#020208">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Panchangam">
 <title>Vedic Chronometer v7.2 · Telugu Panchangam</title>
 <meta name="description" content="Precise Telugu Panchangam — Ghati from Sunrise, Amanta Masa, Samvatsara, Rahu Kalam, Navagraha. Lahiri Ayanamsa. Hyderabad.">
 <meta name="version" content="7.2.0">
@@ -65,7 +70,7 @@ Index · HTML
   --telugu:#90b8e0; --notice-bg:rgba(10,30,80,.6); --notice-border:#2848a0; --notice-col:#90b8f0;
   --stars:180,200,240;
 }
- 
+
 /* ═══════════════════════════════════════════════
    RESET
 ═══════════════════════════════════════════════ */
@@ -73,18 +78,18 @@ Index · HTML
 html,body{width:100%;min-height:100vh;background:var(--bg);color:var(--text);font-family:'EB Garamond',Georgia,serif;overflow-x:hidden;-webkit-tap-highlight-color:transparent;transition:background .4s,color .4s;}
 button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit;}
 ::-webkit-scrollbar{width:2px;}::-webkit-scrollbar-thumb{background:var(--border);border-radius:1px;}
- 
+
 /* ═══════════════════════════════════════════════
    STARS
 ═══════════════════════════════════════════════ */
 #stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;transition:opacity .4s;}
 [data-theme="chandrama"] #stars{opacity:.08;}
- 
+
 /* ═══════════════════════════════════════════════
    PAGE
 ═══════════════════════════════════════════════ */
 .page{position:relative;z-index:1;max-width:400px;margin:0 auto;padding:18px 13px 64px;display:flex;flex-direction:column;align-items:center;gap:7px;}
- 
+
 /* ═══════════════════════════════════════════════
    THEME SWITCHER
 ═══════════════════════════════════════════════ */
@@ -97,7 +102,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .tb-chandrama{background:radial-gradient(circle at 40% 40%,#c8b080,#f4f0e8);}
 .tb-nilambara{background:radial-gradient(circle at 40% 40%,#1a2848,#02050f);}
 .theme-label{font-family:'Cinzel',serif;font-size:7px;letter-spacing:3px;color:var(--textdim);text-transform:uppercase;text-align:center;margin-top:2px;}
- 
+
 /* ═══════════════════════════════════════════════
    HEADER
 ═══════════════════════════════════════════════ */
@@ -115,7 +120,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .loc-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.4s ease-in-out infinite;flex-shrink:0;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.8)}}
 .loc-text{font-size:9px;color:var(--textdim);font-style:italic;}
- 
+
 /* ═══════════════════════════════════════════════
    NOTICE BAR
 ═══════════════════════════════════════════════ */
@@ -124,7 +129,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .notice-txt{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--notice-col);text-transform:uppercase;}
 .notice-bad{background:rgba(80,15,15,.6);border-color:#601818;}
 .notice-bad .notice-txt{color:#c05050;}
- 
+
 /* ═══════════════════════════════════════════════
    SUNRISE / SUNSET BAR
 ═══════════════════════════════════════════════ */
@@ -136,7 +141,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .day-arc-wrap{flex:2;text-align:center;padding:0 8px;}
 .day-arc-svg{display:block;margin:0 auto;}
 .day-quality-txt{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-top:3px;}
- 
+
 /* ═══════════════════════════════════════════════
    DIAL
 ═══════════════════════════════════════════════ */
@@ -149,7 +154,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .d-plabel{font-family:'Cinzel',serif;font-size:7px;letter-spacing:4px;color:var(--golddim);text-transform:uppercase;margin-top:2px;opacity:.6;}
 .d-param{font-size:11px;font-style:italic;color:var(--golddim);margin-top:5px;}
 .d-fromsun{font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:2px;color:var(--golddim);opacity:.5;margin-top:3px;}
- 
+
 /* ═══════════════════════════════════════════════
    CARD BASE
 ═══════════════════════════════════════════════ */
@@ -160,7 +165,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .tap:active{opacity:.85;}
 .pbar{width:100%;height:2px;background:rgba(128,128,128,.1);border-radius:1px;overflow:hidden;margin-top:7px;}
 .pfill{height:100%;border-radius:1px;transition:width 8s linear;}
- 
+
 /* ═══════════════════════════════════════════════
    SUB-DAY VEDIC TIME (new in v7.2)
 ═══════════════════════════════════════════════ */
@@ -173,7 +178,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .sd-val{font-family:'Cinzel',serif;font-size:10px;color:var(--goldmid);white-space:nowrap;}
 .sd-bar{width:100%;height:3px;background:rgba(128,128,128,.12);border-radius:2px;overflow:hidden;margin-top:4px;}
 .sd-fill{height:100%;width:0%;border-radius:2px;}
- 
+
 /* ═══════════════════════════════════════════════
    MUHURTA
 ═══════════════════════════════════════════════ */
@@ -186,7 +191,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .mbdg-g{color:var(--goodlt);border:1px solid var(--good);}
 .mbdg-b{color:var(--badlt);border:1px solid var(--bad);}
 .muh-r2{display:flex;justify-content:space-between;margin-top:3px;font-size:11px;color:var(--textdim);}
- 
+
 /* ═══════════════════════════════════════════════
    MOON ROW
 ═══════════════════════════════════════════════ */
@@ -198,7 +203,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .moon-rt{text-align:right;}
 .moon-phase{font-family:'Cinzel',serif;font-size:11px;color:var(--lunar);}
 .moon-paksha{font-size:9px;color:var(--lunardim);margin-top:2px;}
- 
+
 /* ═══════════════════════════════════════════════
    PANCHANGA
 ═══════════════════════════════════════════════ */
@@ -210,7 +215,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .pc-te{font-size:11px;color:var(--telugu);margin-top:1px;}
 .pc-sub{font-size:10px;color:var(--textdim);font-style:italic;margin-top:3px;}
 .pc-n{position:absolute;right:8px;top:5px;font-family:'Cinzel',serif;font-size:20px;font-weight:900;color:var(--golddim);opacity:.18;}
- 
+
 /* ═══════════════════════════════════════════════
    AUSPICIOUS / INAUSPICIOUS TIMES
 ═══════════════════════════════════════════════ */
@@ -227,7 +232,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .tc-status{font-family:'Cinzel',serif;font-size:7.5px;margin-top:3px;letter-spacing:2px;}
 .tc-status.g{color:var(--goodlt);}
 .tc-status.b{color:var(--badlt);}
- 
+
 /* ═══════════════════════════════════════════════
    HORA
 ═══════════════════════════════════════════════ */
@@ -242,7 +247,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .hora-pip{flex-shrink:0;width:21px;height:21px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:1px solid var(--border);color:var(--textdim);}
 .hora-pip.now{border-width:1.5px;}
 .hora-pip.past{opacity:.2;}
- 
+
 /* ═══════════════════════════════════════════════
    INAUSPICIOUS PERIODS
 ═══════════════════════════════════════════════ */
@@ -253,7 +258,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .ic-name{font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:2px;color:var(--golddim);text-transform:uppercase;margin-bottom:4px;}
 .ic-time{font-family:'Cinzel',serif;font-size:9.5px;color:var(--text);}
 .ic-now{font-family:'Cinzel',serif;font-size:7.5px;color:var(--badlt);margin-top:3px;letter-spacing:2px;}
- 
+
 /* ═══════════════════════════════════════════════
    PRECISION
 ═══════════════════════════════════════════════ */
@@ -262,7 +267,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .pb-label{font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:3px;color:var(--golddim);text-transform:uppercase;margin-bottom:4px;}
 .pb-val{font-family:'Cinzel',serif;font-size:11.5px;color:var(--lunar);letter-spacing:.5px;}
 .ps{width:1px;height:32px;background:var(--border);opacity:.4;}
- 
+
 /* ═══════════════════════════════════════════════
    GRAHA
 ═══════════════════════════════════════════════ */
@@ -276,20 +281,20 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .gc-deg{font-size:9px;color:var(--textdim);font-style:italic;margin-top:2px;}
 .gc-dig{font-family:'Cinzel',serif;font-size:7px;letter-spacing:1.5px;margin-top:3px;text-transform:uppercase;}
 .dex{color:var(--goodlt);}.down{color:var(--goldmid);}.ddb{color:var(--badlt);}.dneu{color:var(--textdim);}
- 
+
 /* ═══════════════════════════════════════════════
    CHAKRA
 ═══════════════════════════════════════════════ */
 .chakra-wrap{width:100%;background:var(--panel);border:1px solid var(--border);border-radius:2px;padding:10px;display:flex;justify-content:center;cursor:pointer;transition:border-color .2s;}
 .chakra-wrap:hover{border-color:var(--border2);}
- 
+
 /* ═══════════════════════════════════════════════
    CALENDAR BUTTON
 ═══════════════════════════════════════════════ */
 .cal-btn{width:100%;padding:11px;border:1px solid var(--border);border-radius:2px;color:var(--goldmid);font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:5px;text-transform:uppercase;transition:all .2s;}
 .cal-btn:hover{border-color:var(--gold);color:var(--gold);}
 .footer{font-family:'Cinzel',serif;font-size:7px;letter-spacing:4px;color:var(--golddim);opacity:.3;text-align:center;text-transform:uppercase;margin-top:4px;}
- 
+
 /* ═══════════════════════════════════════════════
    DRAWER
 ═══════════════════════════════════════════════ */
@@ -306,7 +311,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 .dr span:last-child{font-family:'Cinzel',serif;font-size:11.5px;color:var(--textbrt);text-align:right;max-width:58%;}
 .close-btn{display:block;width:100%;margin-top:12px;padding:10px;border:1px solid var(--border);border-radius:2px;color:var(--golddim);font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;transition:all .2s;}
 .close-btn:hover{border-color:var(--gold);color:var(--gold);}
- 
+
 /* ═══════════════════════════════════════════════
    CALENDAR
 ═══════════════════════════════════════════════ */
@@ -337,9 +342,9 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 </head>
 <body>
 <canvas id="stars"></canvas>
- 
+
 <div class="page">
- 
+
   <!-- THEME SWITCHER -->
   <div>
     <div class="theme-row">
@@ -350,7 +355,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
     </div>
     <div class="theme-label" id="themeLabel">Nakshatra</div>
   </div>
- 
+
   <!-- HEADER -->
   <div class="hdr">
     <div class="hdr-title">Vedic Chronometer</div>
@@ -369,7 +374,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
       <div class="loc-text" id="locText">Locating…</div>
     </div>
   </div>
- 
+
   <!-- SUNRISE BAR -->
   <div class="ss-bar">
     <div class="ss-item"><div class="ss-label">☀ Sunrise</div><div class="ss-val" id="ssSunrise">—</div></div>
@@ -385,12 +390,12 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
     <div class="ss-sep"></div>
     <div class="ss-item"><div class="ss-label">☽ Sunset</div><div class="ss-val" id="ssSunset">—</div></div>
   </div>
- 
+
   <!-- NOTICE BAR -->
   <div class="notice-bar" id="noticeBar">
     <div class="notice-txt" id="noticeTxt">—</div>
   </div>
- 
+
   <!-- DIAL -->
   <div class="dial-wrap" role="img" aria-label="Vedic time dial">
     <svg id="dial-svg" viewBox="0 0 292 292" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -403,13 +408,13 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
       <div class="d-fromsun">from sunrise</div>
     </div>
   </div>
- 
+
   <!-- SUB-DAY VEDIC TIME (v7.2) -->
   <div class="sd-card tap" onclick="showDrawer('subday')" role="button" aria-label="Sub-day Vedic time units">
     <div class="clabel">Sub-day Time · From Sunrise</div>
     <div id="sdRows"></div>
   </div>
- 
+
   <!-- MUHURTA -->
   <div class="muh-card tap" id="muhCard" onclick="showDrawer('muhurta')" role="button" aria-label="Muhurta detail">
     <div class="muh-stripe" id="muhStripe"></div>
@@ -421,7 +426,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
     <div class="muh-r2"><span id="muhTime">—</span><span id="muhNum">— / 30</span></div>
     <div class="pbar"><div class="pfill" id="muhPfill" style="width:0%"></div></div>
   </div>
- 
+
   <!-- MOON -->
   <div class="moon-row">
     <div class="moon-glyph" id="moonGlyph" aria-hidden="true">🌕</div>
@@ -434,7 +439,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
       <div class="moon-paksha" id="moonPaksha">—</div>
     </div>
   </div>
- 
+
   <!-- PANCHANGA -->
   <div class="pg" role="group" aria-label="Panchanga elements">
     <div class="pc tap" onclick="showDrawer('tithi')" role="button">
@@ -470,7 +475,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
       <div class="pc-sub" id="pKaranaSub">—</div>
     </div>
   </div>
- 
+
   <!-- AUSPICIOUS / SPECIAL TIMES -->
   <div class="sec-title">Special Times Today</div>
   <div class="times-grid">
@@ -495,7 +500,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
       <div class="tc-status g" id="abhijitStatus"></div>
     </div>
   </div>
- 
+
   <!-- HORA -->
   <div class="hora-card tap" onclick="showDrawer('hora')" role="button" aria-label="Hora detail">
     <div class="hora-stripe" id="horaStripe"></div>
@@ -508,7 +513,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
     <div class="pbar"><div class="pfill" id="horaPfill" style="width:0%"></div></div>
     <div class="hora-seq" id="horaSeq" aria-hidden="true"></div>
   </div>
- 
+
   <!-- INAUSPICIOUS PERIODS -->
   <div class="sec-title">Inauspicious Periods</div>
   <div class="inaup-grid" id="inaupGrid">
@@ -528,7 +533,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
       <div class="ic-now" id="yamaNow"></div>
     </div>
   </div>
- 
+
   <!-- PRECISION -->
   <div class="prec-row">
     <div class="pb"><div class="pb-label">Sidereal Time</div><div class="pb-val" id="prSid">—</div></div>
@@ -544,21 +549,21 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
     <div class="ps"></div>
     <div class="pb"><div class="pb-label">Lagna</div><div class="pb-val" id="prLagna">—</div></div>
   </div>
- 
+
   <!-- NAVAGRAHA -->
   <div class="sec-title">Navagraha · నవగ్రహాలు</div>
   <div class="graha-grid" id="grahaGrid"></div>
- 
+
   <!-- CHAKRA -->
   <div class="chakra-wrap tap" onclick="showDrawer('chakra')" role="button" aria-label="Rashi chakra detail">
     <svg id="chakra-svg" viewBox="0 0 260 260" width="260" height="260" xmlns="http://www.w3.org/2000/svg"></svg>
   </div>
- 
+
   <button class="cal-btn" onclick="openCalendar()">☽ · Vedic Calendar · పంచాంగం · ☉</button>
   <div class="footer">v7.2 · Lahiri · Ghaṭī from Sunrise · Amanta Māsam · Ayanam · Pañcaka</div>
- 
+
 </div><!-- .page -->
- 
+
 <!-- DRAWER -->
 <div class="overlay" id="drawerOv" onclick="ovClick(event)" role="dialog" aria-modal="true">
   <div class="drawer">
@@ -568,7 +573,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
     <button class="close-btn" onclick="closeDrawer()">Close</button>
   </div>
 </div>
- 
+
 <!-- CALENDAR -->
 <div class="cal-ov" id="calOv" role="dialog" aria-modal="true">
   <div class="cal-modal">
@@ -589,7 +594,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
     <button class="cal-close" onclick="closeCalendar()">Close Calendar</button>
   </div>
 </div>
- 
+
 <script>
 'use strict';
 /* ═══════════════════════════════════════════════════
@@ -600,7 +605,7 @@ const mod360 = x => ((x%360)+360)%360;
 const pad    = n => String(Math.floor(Math.abs(n))).padStart(2,'0');
 const hhmm   = h => { const hh=(h%24+24)%24; return pad(hh)+':'+pad((hh%1)*60); };
 const clamp  = (v,lo,hi) => Math.max(lo,Math.min(hi,v));
- 
+
 /* ═══════════════════════════════════════════════════
    TABLES
 ═══════════════════════════════════════════════════ */
@@ -724,7 +729,7 @@ const GRAHAS=[
 ];
 const GRE_MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
 const THEME_NAMES={nakshatra:'Nakshatra',surya:'Surya',chandrama:'Chandrama',nilambara:'Nilambara'};
- 
+
 /* ═══════════════════════════════════════════════════
    CHANDRAMANA MASA TABLE (Amanta, Telugu tradition)
    [boundary JD, masaIdx 0=Chaitram..11=Phalgunam]
@@ -757,7 +762,7 @@ function ugadiFor(year){
   }
   return new Date(year,2,25);
 }
- 
+
 /* ═══════════════════════════════════════════════════
    ASTRONOMY
 ═══════════════════════════════════════════════════ */
@@ -847,7 +852,7 @@ function getDignity(lon,g){
   if(ri===g.db.r)return{t:'Debil. Sgn',c:'ddb'};
   return{t:'Neutral',c:'dneu'};
 }
- 
+
 /* ═══════════════════════════════════════════════════
    STATE
 ═══════════════════════════════════════════════════ */
@@ -855,7 +860,7 @@ let uLat=17.3850,uLon=78.4867,geoReady=false;
 let S={};
 let currentTheme='nakshatra';
 let lastSlowBuild=0;
- 
+
 (function tryGeo(){
   if(!navigator.geolocation)return;
   navigator.geolocation.getCurrentPosition(
@@ -865,7 +870,7 @@ let lastSlowBuild=0;
     ()=>setText('locText','📍 Hyderabad (default) — enable location'),
     {enableHighAccuracy:true,maximumAge:600000,timeout:15000});
 })();
- 
+
 /* ═══════════════════════════════════════════════════
    COMPUTE
 ═══════════════════════════════════════════════════ */
@@ -882,7 +887,7 @@ function compute(){
   const dow=now.getDay(),vara=VARAS[dow];
   const yogaIdx=Math.floor(mod360(sunSid+moonSid)/nakSpan)%27;
   const karIdx=Math.floor(elong/6)%11;
- 
+
   // ── SUNRISE-BASED TIME ────────────────────────────
   const [sunrise,sunset]=sunriseSunset(now,uLat,uLon);
   const curH=now.getHours()+now.getMinutes()/60+now.getSeconds()/3600;
@@ -898,20 +903,20 @@ function compute(){
   const muhProg=(totalGhati/2)%1;
   const muhSH=sunrise+(muhIdx/30)*24,muhEH=sunrise+((muhIdx+1)/30)*24;
   const dayLen=sunset-sunrise,nightLen=24-dayLen,partLen=dayLen/8;
- 
+
   function period8(part){
     const s=sunrise+(part-1)*partLen,e=s+partLen;
     return{s,e,active:curH>=s&&curH<e};
   }
   const rahu=period8(RAHU_PART[dow]),gulika=period8(GULIKA_PART[dow]),yama=period8(YAMA_PART[dow]);
- 
+
   // Durmuhurtam
   const durLen=dayLen/15;
   const durmPeriods=DURM_BY_DOW[dow].map(n=>{
     const s=sunrise+(n-1)*durLen,e=s+durLen;
     return{s,e,active:curH>=s&&curH<e};
   });
- 
+
   // Hora
   const dayLordIdx=DAY_LORD[dow];
   let horaNum,horaS,horaE,isDay;
@@ -925,7 +930,7 @@ function compute(){
   }
   const horaLordIdx=(dayLordIdx+horaNum)%7;
   const horaProg=clamp((curH-horaS)/(horaE-horaS),0,1);
- 
+
   // Amrita / Varjyam — actual moon speed instead of fixed 0.55°/hr
   const degIntoNak=moonSid%nakSpan;
   const moonSid1h=mod360(moonLon(jd-1/24)-lahiriAyanamsa(jd-1/24));
@@ -943,11 +948,11 @@ function compute(){
   if(varjyamS<curH-12)varjyamS+=nakPeriod;
   if(varjyamS>curH+12)varjyamS-=nakPeriod;
   const varjyamE=varjyamS+4*G2H;
- 
+
   // Special times
   const brahmaMuhStart=sunrise-96/60,solarNoon=(sunrise+sunset)/2;
   const abhijitStart=solarNoon-24/60,abhijitEnd=solarNoon+24/60;
- 
+
   // Planets
   const pl=computePlanets(jd);
   const allLon={
@@ -958,14 +963,14 @@ function compute(){
   };
   const lagnaL=mod360(ascLon(jd,uLat,uLon)-ayan);
   const lagnaRi=Math.floor(lagnaL/30)%12;
- 
+
   /* Samvatsara — Śaka year changes at Ugadi (derived from the Masa table, v7.2) */
   const todayMid=new Date(now.getFullYear(),now.getMonth(),now.getDate());
   const ugadiThis=ugadiFor(now.getFullYear());
   const sakaYear=todayMid>=ugadiThis?(now.getFullYear()-78):(now.getFullYear()-79);
   const svIdx=((sakaYear-1909)%60+60)%60;
   const samvatsara=SAMVATSARAS[svIdx];
- 
+
   /* Chandramana Masa lookup */
   let masaIdx=0;
   for(let i=0;i<AMANTA_NM.length-1;i++){
@@ -973,7 +978,7 @@ function compute(){
     if(i===AMANTA_NM.length-2)masaIdx=AMANTA_NM[i+1][1];
   }
   const chandraMasa=TEL_LUNI[masaIdx];
- 
+
   // Notices
   const notices=[];
   if(curH>=brahmaMuhStart&&curH<sunrise)notices.push({t:'☀ Brahmā Muhūrtam — Sacred Hour Before Dawn',bad:false});
@@ -982,7 +987,7 @@ function compute(){
   if(durmPeriods.some(p=>p.active))notices.push({t:'⚠ Durmuhūrtam Active — Avoid New Activities',bad:true});
   if([23,24,25,26,0].includes(nakIdx))notices.push({t:'⚠ Pañcaka — Inauspicious Nakṣatra Period',bad:true});
   if(varjyamE-varjyamS>0&&curH>=varjyamS&&curH<=varjyamE)notices.push({t:'⚠ Varjyam Period — Inauspicious',bad:true});
- 
+
   // Day quality
   let dqScore=0;
   if(tD.s)dqScore+=2;
@@ -990,7 +995,7 @@ function compute(){
   if(['Light','Fixed','Soft','Moveable'].includes(nak.nat))dqScore++;
   else if(['Fierce','Sharp'].includes(nak.nat))dqScore--;
   const dayQ=dqScore>=4?{t:'Śubha',c:'#50a060'}:dqScore>=2?{t:'Mixed',c:'var(--goldmid)'}:{t:'Caution',c:'#a04040'};
- 
+
   S={now,jd,ayan,sT,mT,sunSid,moonSid,elong,
     tIdx,tD,paksha,nakIdx,nak,nakProg,pada,vara,dow,yogaIdx,karIdx,
     muhIdx,muhProg,muhSH,muhEH,ghati,pala,vipala,paramanu,totalGhati,dayFrac,
@@ -1014,7 +1019,7 @@ function compute(){
     isPanchaka:[23,24,25,26,0].includes(nakIdx),
   };
 }
- 
+
 /* ═══════════════════════════════════════════════════
    UI HELPERS
 ═══════════════════════════════════════════════════ */
@@ -1022,7 +1027,7 @@ const $=id=>document.getElementById(id);
 function setText(id,v){const e=$(id);if(e)e.textContent=v;}
 function setStyle(id,p,v){const e=$(id);if(e)e.style[p]=v;}
 function toggleClass(id,cls,on){const e=$(id);if(e)e.classList.toggle(cls,on);}
- 
+
 /* ═══════════════════════════════════════════════════
    SUB-DAY VEDIC TIME (v7.2)
    1 day = 8 yāma = 60 daṇḍa(ghaṭī) = 30 muhūrta
@@ -1059,7 +1064,7 @@ function updateSubDay(){
     setStyle('sdb-'+u.key,'width',((x%1)*100).toFixed(1)+'%');
   });
 }
- 
+
 /* ═══════════════════════════════════════════════════
    UPDATE UI
 ═══════════════════════════════════════════════════ */
@@ -1070,7 +1075,7 @@ function updateUI(){
   setText('metaShaka',v.shakaYear);setText('metaVikrama',v.vikrama);
   setText('metaMasam',v.chandraMasa);setText('metaRitu',TEL_RITU[v.sauraMasaIdx]);
   setText('metaAyanam',v.ayanam);
- 
+
   // Sunrise bar with arc
   setText('ssSunrise',hhmm(v.sunrise));setText('ssSunset',hhmm(v.sunset));
   const arcPct=clamp((v.curH-v.sunrise)/v.dayLen,0,1);
@@ -1083,7 +1088,7 @@ function updateUI(){
     if(arcFill)arcFill.setAttribute('stroke',v.dayQ.c);
   }
   setText('dayQText',v.dayQ.t);setStyle('dayQText','fill',v.dayQ.c);
- 
+
   // Notice bar
   const nb=$('noticeBar');
   if(v.notices.length>0){
@@ -1092,14 +1097,14 @@ function updateUI(){
   }else{
     if(nb)nb.classList.remove('on');
   }
- 
+
   // Dial
   const gh=$('ghati-hand'),ph=$('pala-hand');
   if(gh)gh.setAttribute('transform',`rotate(${v.ghatiAngle},146,146)`);
   if(ph)ph.setAttribute('transform',`rotate(${v.palaAngle},146,146)`);
   for(let i=0;i<27;i++){const s=$('nk'+i);if(s)s.setAttribute('fill',i===v.nakIdx?'rgba(154,196,212,0.1)':(i%2===0?'rgba(201,168,76,0.03)':'none'));}
   setText('dGhati',pad(v.ghati));setText('dPala',pad(v.pala)+' · '+pad(v.vipala));setText('dParam',v.paramanu+' paramāṇu');
- 
+
   // Muhurta
   const muh=MUHURTAS[v.muhIdx],mc=muh.q?'var(--goodlt)':'var(--badlt)';
   setStyle('muhStripe','background',muh.q?'var(--good)':'var(--bad)');
@@ -1107,12 +1112,12 @@ function updateUI(){
   setText('muhName',muh.n);
   const bdg=$('muhBdg');if(bdg){bdg.textContent=muh.q?'Śubha':'Aśubha';bdg.className='mbdg '+(muh.q?'mbdg-g':'mbdg-b');}
   setText('muhTime',hhmm(v.muhSH)+' – '+hhmm(v.muhEH));setText('muhNum',(v.muhIdx+1)+' / 30');
- 
+
   // Moon
   setText('moonGlyph',MOON_ICONS8[Math.round(v.elong/45)%8]);
   setText('moonPhase',v.tIdx===14?'Pūrṇimā':v.tIdx===29?'Amāvasyā':v.tD.n);
   setText('moonPaksha',v.paksha);setStyle('moonPip','left',(v.moonPakshaPct*100).toFixed(1)+'%');
- 
+
   // Panchanga
   setText('pTithi',v.tD.n);setText('pTithiTe',v.tD.te);
   setText('pTithiSub',v.paksha+' · '+v.tD.q);setText('pTithiN',v.tD.num);
@@ -1122,7 +1127,7 @@ function updateUI(){
   setText('pVara',v.vara.n);setText('pVaraTe',v.vara.te);setText('pVaraSub',v.vara.l);
   setText('pYoga',YOGAS[v.yogaIdx].n);setText('pYogaSub',YOGAS[v.yogaIdx].q);setText('pYogaN',v.yogaIdx+1);
   setText('pKarana',KARANAS[v.karIdx]);setText('pKaranaSub',v.karIdx<8?'Moveable (Cara)':'Fixed (Sthira)');
- 
+
   // Special times
   setText('amritaTime',hhmm(v.amritaS)+' – '+hhmm(v.amritaE));
   setText('amritaStatus',v.amritaActive?'● Active — Auspicious':'');
@@ -1136,7 +1141,7 @@ function updateUI(){
   toggleClass('tcAmrita','active-good',v.amritaActive);
   toggleClass('tcVarjyam','active-bad',v.varjyamActive);
   toggleClass('tcDurm1','active-bad',!!(dp0&&dp0.active));
- 
+
   // Hora
   const hc=CHAL_COL[v.horaLordIdx];
   setStyle('horaStripe','background',hc);setStyle('horaPfill','background',hc);
@@ -1146,21 +1151,21 @@ function updateUI(){
   setText('horaTime',hhmm(v.horaS)+' – '+hhmm(v.horaE));
   setText('horaNum','Horā '+(v.horaNum+1)+' of 24');setText('horaDN',v.isDay?'☀ Day':'☽ Night');
   const seq=$('horaSeq');if(seq){seq.innerHTML='';for(let i=0;i<12;i++){const idx=(v.dayLordIdx+v.horaNum+i)%7;const p=document.createElement('div');p.className='hora-pip'+(i===0?' now':'');p.textContent=CHAL_G[idx];if(i===0){p.style.color=CHAL_COL[idx];p.style.borderColor=CHAL_COL[idx];}seq.appendChild(p);}}
- 
+
   // Inauspicious
   function setInaup(cid,tid,nid,p){toggleClass(cid,'active',p.active);setText(tid,hhmm(p.s)+'–'+hhmm(p.e));setText(nid,p.active?'● NOW':'');}
   setInaup('icRahu','rahuTime','rahuNow',v.rahu);setInaup('icGulika','gulikaTime','gulikaNow',v.gulika);setInaup('icYama','yamaTime','yamaNow',v.yama);
- 
+
   // Precision
   setText('prSid',siderealStr(v.jd,uLon));setText('prJD',v.jd.toFixed(4));setText('prAyan',v.ayan.toFixed(4)+'°');
   setText('prSun',v.sunPos);setText('prMoon',v.moonPos);setText('prLagna',v.lagnaPos);
- 
+
   // v7.2: graha cards and chakra change slowly — rebuild every 20 s instead of every second,
   // so taps on the graha cards are no longer lost to a mid-tap rebuild.
   const nowMs=Date.now();
   if(nowMs-lastSlowBuild>20000){lastSlowBuild=nowMs;buildGrahaGrid();buildChakra();}
 }
- 
+
 /* ═══════════════════════════════════════════════════
    GRAHA
 ═══════════════════════════════════════════════════ */
@@ -1173,7 +1178,7 @@ function buildGrahaGrid(){
     g.appendChild(c);
   });
 }
- 
+
 /* ═══════════════════════════════════════════════════
    CHAKRA
 ═══════════════════════════════════════════════════ */
@@ -1195,7 +1200,7 @@ function buildChakra(){
   for(const ri in byR)byR[ri].forEach((p,i)=>{const r=Ri-13-i*14,a=((p.lon+rot)-90)*D2R;svg.appendChild(E('text',{x:cx+Math.cos(a)*r,y:cy+Math.sin(a)*r,'font-size':'12','text-anchor':'middle','dominant-baseline':'central',fill:p.g.c},p.g.g));});
   svg.appendChild(E('text',{x:cx,y:cy,'font-family':'serif','font-size':'9',fill:'var(--golddim)','text-anchor':'middle','dominant-baseline':'central'},RASHIS[S.lagnaRi].substring(0,3)));
 }
- 
+
 /* ═══════════════════════════════════════════════════
    DIAL BUILD
    v7.2: clears the SVG first. Before, every theme change appended a second
@@ -1231,7 +1236,7 @@ function buildDial(){
   ph.appendChild(E('line',{x1:cx,y1:cy,x2:cx,y2:cy-(R-76),stroke:'var(--lunar)','stroke-width':'1.3','stroke-linecap':'round',opacity:'0.65'}));svg.appendChild(ph);
   svg.appendChild(E('circle',{cx,cy,r:'3.5',fill:'var(--goldlt)',stroke:'var(--gold)','stroke-width':'1'}));
 }
- 
+
 /* ═══════════════════════════════════════════════════
    THEME
 ═══════════════════════════════════════════════════ */
@@ -1248,13 +1253,13 @@ function setTheme(name,btn){
   buildDial();
   if(S&&S.now)updateUI(); // repaint hands immediately on the fresh dial
 }
- 
+
 /* ═══════════════════════════════════════════════════
    DRAWER
 ═══════════════════════════════════════════════════ */
 function R(l,v){return '<div class="dr"><span>'+l+'</span><span>'+v+'</span></div>';}
 function DS(t,b){return '<div class="dsec"><div class="dstitle">'+t+'</div>'+b+'</div>';}
- 
+
 function drawerContent(type){
   const v=S,muh=MUHURTAS[v.muhIdx],yog=YOGAS[v.yogaIdx];
   switch(type){
@@ -1322,7 +1327,7 @@ function drawerContent(type){
 function showDrawer(t){const d=drawerContent(t);setText('drawerTitle',d.t);$('drawerBody').innerHTML=d.c;$('drawerOv').classList.add('open');}
 function closeDrawer(){$('drawerOv').classList.remove('open');}
 function ovClick(e){if(e.target===$('drawerOv'))closeDrawer();}
- 
+
 /* ═══════════════════════════════════════════════════
    CALENDAR
 ═══════════════════════════════════════════════════ */
@@ -1354,7 +1359,7 @@ function renderCal(){
     grid.appendChild(cell);
   }
 }
- 
+
 /* ═══════════════════════════════════════════════════
    STARFIELD
    v7.2: reads the colour once per frame (was once per star per frame)
@@ -1370,14 +1375,14 @@ function initStars(){
   };
   window.addEventListener('resize',resize);resize();requestAnimationFrame(draw);
 }
- 
+
 /* ═══════════════════════════════════════════════════
    INIT
 ═══════════════════════════════════════════════════ */
 function tick(){compute();updateUI();updateSubDay();}
- 
+
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeCalendar();}});
- 
+
 buildDial();
 tick();
 // Load saved theme (after first tick so the repaint in setTheme has data)
@@ -1390,7 +1395,13 @@ try{
 }catch(e){}
 initStars();
 setInterval(tick,1000);
+
+// PWA: register the service worker (needs HTTPS or localhost; silently skipped otherwise)
+if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostname==='localhost')){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
 </script>
 </body>
 </html>
- 
